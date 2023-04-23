@@ -28,7 +28,7 @@ export default function PageWrapper(props: {
         <div className="">
           <Header title={props.title || ''} />
         </div>
-        <div className="p-10 h-full min-h-full">
+        <div className="px-10 h-full min-h-full">
           <Content />
         </div>
         <LinkButton scrollTo={props.scrollTo} isLast={props.isLast || false} />

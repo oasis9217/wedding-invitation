@@ -18,10 +18,10 @@ export default function Map() {
         place-items-center
         justify-center
         justify-between
-        space-y-5
+        space-y-2
       "
     >
-      <div className="space-y-1.5 text-left">
+      <div className="space-y-1 text-left">
         <p className="text-2xl font-extrabold">더케이호텔</p>
         <p className="text-lg">서울 서초구 바우뫼로12길 70</p>
         <ul className="list-inside text-sm">
@@ -41,24 +41,24 @@ export default function Map() {
       <div className="flex items-center space-x-10 place-self-center">
         <button>
           <Link href={'https://naver.me/xfakB6vP'}>
-            <Image className="rounded-lg" src={navermapPic} alt="네이버지도로 열기" width={50} />
+            <Image className="rounded-lg" src={navermapPic} alt="네이버지도로 열기" width={40} />
           </Link>
         </button>
 
         <button>
           <Link href={'https://surl.tmobiapi.com/db294dc8'}>
-            <Image className="rounded-lg" src={tmapPic} alt="티맵으로 열기" width={50} />
+            <Image className="rounded-lg" src={tmapPic} alt="티맵으로 열기" width={40} />
           </Link>
         </button>
 
         <button>
           <Link href={'https://place.map.kakao.com/7941550'}>
-            <Image className="rounded-lg" src={kakaomapPic} alt="카카오맵으로 열기" width={50} />
+            <Image className="rounded-lg" src={kakaomapPic} alt="카카오맵으로 열기" width={40} />
           </Link>
         </button>
       </div>
 
-      <div className="w-full max-w-[500px] max-h-[500px] overflow-hidden">
+      <div className="w-full max-w-[400px] h-36 sm:h-56 lg:h-60 max-h-[400px] overflow-hidden">
         <div className="overflow-hidden">
           <Image className="rounded-lg" src={theKPic} alt="The K Hotel" />
         </div>

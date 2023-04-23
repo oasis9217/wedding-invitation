@@ -70,7 +70,7 @@ export default class Messages extends React.Component<any, any> {
           text-gray-600
         "
       >
-        <div className="h-80 w-full max-w-[500px] overflow-auto container">
+        <div className="h-48 w-full max-w-[500px] overflow-auto container">
           {this.state.messages.map(
             (v: { writer: string; message: string; timestamp: number }, i: number) => {
               return (
@@ -85,9 +85,9 @@ export default class Messages extends React.Component<any, any> {
           )}
         </div>
 
-        <div className="mt-8 w-3/4 max-w-[500px]">
+        <div className="h-full w-full max-w-[500px]">
           <form onSubmit={this.handleSubmit} method="post">
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-2">
               <label className="block">
                 <span className="text-gray-700">글쓴이</span>
                 <input
@@ -129,8 +129,8 @@ export default class Messages extends React.Component<any, any> {
                     bg-blue-500
                     hover:bg-blue-700
                     font-bold
-                    py-2
-                    px-4
+                    py-1
+                    px-1
                     rounded-full
                   "
                 type="submit"
