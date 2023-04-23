@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import MessageCard from '@/pages/components/MessageCard';
 import LinkButton from '@/pages/components/LinkButton';
 
@@ -18,16 +18,17 @@ const sampleMessages = [
 ];
 
 export default class Messages extends React.Component<any, any> {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       messages: sampleMessages,
     };
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
+    // @ts-ignore
     const [writerElement, messageElement] = e.target.elements;
 
     if (writerElement.value.length < 2) {
@@ -70,11 +71,18 @@ export default class Messages extends React.Component<any, any> {
         "
       >
         <div className="h-80 w-full max-w-[500px] overflow-auto container">
-          {this.state.messages.map((v, i) => {
-            return (
-              <MessageCard writer={v.writer} message={v.message} timestamp={v.timestamp} key={i} />
-            );
-          })}
+          {this.state.messages.map(
+            (v: { writer: string; message: string; timestamp: number }, i: number) => {
+              return (
+                <MessageCard
+                  writer={v.writer}
+                  message={v.message}
+                  timestamp={v.timestamp}
+                  key={i}
+                />
+              );
+            },
+          )}
         </div>
 
         <div className="mt-8 w-3/4 max-w-[500px]">
@@ -111,7 +119,7 @@ export default class Messages extends React.Component<any, any> {
                         border-transparent
                         focus:border-gray-500 focus:bg-white focus:ring-0
                       "
-                  rows="3"
+                  rows={3}
                   id="messageElement"
                   name="messageElement"
                 />

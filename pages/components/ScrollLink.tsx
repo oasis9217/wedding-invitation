@@ -11,13 +11,18 @@ const ScrollLink = ({ children, ...props }: ScrollLinkProps) => {
     const targetId = e.currentTarget.href.replace(/.*\#/, '');
     const elem = document.getElementById(targetId);
 
+    if (!elem) {
+      return;
+    }
+
     elem.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
     });
   };
+
   return (
-    <Link {...props} onClick={handleScroll}>
+    <Link href={props.href ?? ''} onClick={handleScroll}>
       {children}
     </Link>
   );

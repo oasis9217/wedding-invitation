@@ -8,9 +8,9 @@ export default function PageWrapper(props: {
   title?: string;
   isLast?: boolean;
 }) {
-  const Header = () => {
+  const Header = (props: { title?: string }) => {
     return props.title ? (
-      <div className="p-10" name="header">
+      <div className="p-10">
         <p className="text-4xl font-extrabold"> {props.title} </p>
       </div>
     ) : (
@@ -26,12 +26,12 @@ export default function PageWrapper(props: {
     <div className="snap-start snap-always">
       <section className="relative min-h-screen max-h-screen" id={'section-' + props.id}>
         <div className="">
-          <Header title={props.title} />
+          <Header title={props.title || ''} />
         </div>
         <div className="p-10 h-full min-h-full">
           <Content />
         </div>
-        <LinkButton scrollTo={props.scrollTo} isLast={props.isLast} height="100px" />
+        <LinkButton scrollTo={props.scrollTo} isLast={props.isLast || false} />
       </section>
     </div>
   );

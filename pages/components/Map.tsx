@@ -41,37 +41,19 @@ export default function Map() {
       <div className="flex items-center space-x-10 place-self-center">
         <button>
           <Link href={'https://naver.me/xfakB6vP'}>
-            <Image
-              className="rounded-lg"
-              src={navermapPic}
-              alt="네이버지도로 열기"
-              width={50}
-              height="auto"
-            />
+            <Image className="rounded-lg" src={navermapPic} alt="네이버지도로 열기" width={50} />
           </Link>
         </button>
 
         <button>
           <Link href={'https://surl.tmobiapi.com/db294dc8'}>
-            <Image
-              className="rounded-lg"
-              src={tmapPic}
-              alt="티맵으로 열기"
-              width={50}
-              height="auto"
-            />
+            <Image className="rounded-lg" src={tmapPic} alt="티맵으로 열기" width={50} />
           </Link>
         </button>
 
         <button>
           <Link href={'https://place.map.kakao.com/7941550'}>
-            <Image
-              className="rounded-lg"
-              src={kakaomapPic}
-              alt="카카오맵으로 열기"
-              width={50}
-              height="auto"
-            />
+            <Image className="rounded-lg" src={kakaomapPic} alt="카카오맵으로 열기" width={50} />
           </Link>
         </button>
       </div>
