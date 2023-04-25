@@ -67,7 +67,7 @@ export default class Messages extends React.Component<any, any> {
           justify-center
           justify-between
           space-y-5
-          text-gray-600
+          text-white
         "
       >
         <div className="h-48 w-full max-w-[500px] overflow-auto container">
@@ -89,7 +89,7 @@ export default class Messages extends React.Component<any, any> {
           <form onSubmit={this.handleSubmit} method="post">
             <div className="grid grid-cols-1 gap-2">
               <label className="block">
-                <span className="text-gray-700">글쓴이</span>
+                <span className="text-white">글쓴이</span>
                 <input
                   type="text"
                   className="
@@ -100,6 +100,7 @@ export default class Messages extends React.Component<any, any> {
                         bg-gray-100
                         border-transparent
                         focus:border-gray-500 focus:bg-white focus:ring-0
+                        text-gray-700
                       "
                   placeholder=""
                   id="writerElement"
@@ -108,7 +109,7 @@ export default class Messages extends React.Component<any, any> {
               </label>
 
               <label className="block">
-                <span className="text-gray-700">메세지</span>
+                <span className="text-white">메세지</span>
                 <textarea
                   className="
                         mt-1
@@ -118,6 +119,7 @@ export default class Messages extends React.Component<any, any> {
                         bg-gray-100
                         border-transparent
                         focus:border-gray-500 focus:bg-white focus:ring-0
+                        text-gray-700
                       "
                   rows={3}
                   id="messageElement"
@@ -126,12 +128,13 @@ export default class Messages extends React.Component<any, any> {
               </label>
               <button
                 className="
-                    bg-blue-500
-                    hover:bg-blue-700
+                    bg-green-200
+                    hover:bg-green-600
                     font-bold
                     py-1
                     px-1
                     rounded-full
+                    text-gray-700
                   "
                 type="submit"
               >

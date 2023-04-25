@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import React, { useEffect } from 'react';
 import PageWrapper from '@/pages/components/PageWrapper';
@@ -27,26 +28,32 @@ export default function Home() {
   })
 
   return (
-    <div className="snap-y snap-mandatory overflow-scroll h-screen">
-      <PageWrapper id={'0'} scrollTo={'1'}>
-        <Hello />
-      </PageWrapper>
+    <div className="bg-scroll bg-center bg-my_bg_sm2">
+    {/*<div className="bg-scroll bg-my_bg_md h-[972px] relative w-full h-60 lg:max-w-2xl lg:h-80">*/}
+    {/*  <div className="bg-scroll bg-center bg-no-repeat bg-my_bg_main h-screen"></div>*/}
 
-      <PageWrapper id={'1'} scrollTo={'2'} title={'오시는 길'}>
-        <Map />
-      </PageWrapper>
+      <div className="snap-y snap-mandatory overflow-scroll h-screen">
+        <PageWrapper id={'0'} scrollTo={'1'}>
+          <Hello />
+        </PageWrapper>
 
-      <PageWrapper id={'2'} scrollTo={'3'} title={'사진첩'}>
-        <Gallery />
-      </PageWrapper>
+        <PageWrapper id={'1'} scrollTo={'2'} title={'오시는 길'}>
+          <Map />
+        </PageWrapper>
 
-      <PageWrapper id={'3'} scrollTo={'4'} title={'메세지 남기기'}>
-        <Messages />
-      </PageWrapper>
+        <PageWrapper id={'2'} scrollTo={'3'} title={'사진첩'}>
+          <Gallery />
+        </PageWrapper>
 
-      <PageWrapper id={'4'} scrollTo={'0'} title={'QnA'}>
-        <QnA />
-      </PageWrapper>
+        <PageWrapper id={'3'} scrollTo={'4'} title={'메세지 남기기'}>
+          <Messages />
+        </PageWrapper>
+
+        <PageWrapper id={'4'} scrollTo={'0'} title={'QnA'} isLast={true}>
+          <QnA />
+        </PageWrapper>
+      </div>
+
     </div>
   );
 }
