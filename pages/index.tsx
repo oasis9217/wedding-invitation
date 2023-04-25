@@ -28,9 +28,7 @@ export default function Home() {
   })
 
   return (
-    <div className="bg-scroll bg-center bg-my_bg_sm2">
-    {/*<div className="bg-scroll bg-my_bg_md h-[972px] relative w-full h-60 lg:max-w-2xl lg:h-80">*/}
-    {/*  <div className="bg-scroll bg-center bg-no-repeat bg-my_bg_main h-screen"></div>*/}
+    <div className="bg-scroll bg-center bg-no-repeat bg-cover bg-my_bg_sm">
       <Head>
         <meta property="og:title" content="김정선🤵‍♂️👰‍♀️류송희️" key="title" />
         <meta property="og:url" content="https://oasis9217.github.io/wedding-invitation/" key="url" />

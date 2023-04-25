@@ -13,9 +13,8 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'my_bg_sm': "url('https://drive.google.com/uc?id=1uqwjIsAa4ps-9dxjGxL3M2u-x_oyNM-w')",
+        'my_bg_sm': "url('https://drive.google.com/uc?id=1YItuBPYiAbccoTfAojd4KIzvApBu9UMB')",
         'my_bg_md': "url('https://drive.google.com/uc?id=1-M_yBv8fyZT2XzHo2Xw27pmkBAzIA0qM')",
-        'my_bg_sm2': "url('https://drive.google.com/uc?id=1YItuBPYiAbccoTfAojd4KIzvApBu9UMB')",
       },
     },
   },
