@@ -11,14 +11,14 @@ export default function Map() {
   return (
     <main
       className="
-        flex
-        flex-col
+        grid
+        grid-cols-1
         h-full
         content-center
         place-items-center
         justify-center
         justify-between
-        space-y-2
+        space-y-5
       "
     >
       <div className="space-y-1 text-left">

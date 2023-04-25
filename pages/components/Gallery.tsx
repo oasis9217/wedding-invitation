@@ -16,7 +16,7 @@ export default function Gallery() {
       <div></div>
       <div className="w-full max-w-[500px] h-52 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel slideInterval={5000}>
-          <Image src={lisaPic} alt="" />
+          <iframe src="https://drive.google.com/file/d/1krKIUCQQWr-mL_9y0WZj-QYVhxsQjBR-/preview" width="640" height="480" allow="autoplay"></iframe>
           <Image src={lisaPic} alt="" />
         </Carousel>
       </div>
