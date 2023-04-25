@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Head from 'next/head'
 import { Inter } from 'next/font/google';
 import React, { useEffect } from 'react';
 import PageWrapper from '@/pages/components/PageWrapper';
@@ -31,6 +31,13 @@ export default function Home() {
     <div className="bg-scroll bg-center bg-my_bg_sm2">
     {/*<div className="bg-scroll bg-my_bg_md h-[972px] relative w-full h-60 lg:max-w-2xl lg:h-80">*/}
     {/*  <div className="bg-scroll bg-center bg-no-repeat bg-my_bg_main h-screen"></div>*/}
+      <Head>
+        <meta property="og:title" content="김정선🤵‍♂️👰‍♀️류송희️" key="title" />
+        <meta property="og:url" content="https://oasis9217.github.io/wedding-invitation/" key="url" />
+        <meta property="og:type" content="website" key="type"/>
+        <meta property="og:image" content="https://drive.google.com/uc?id=1YItuBPYiAbccoTfAojd4KIzvApBu9UMB" key="image" />
+        <meta property="og:description" content="으아니 얘가 결혼을!?" key="desc" />
+      </Head>
 
       <div className="snap-y snap-mandatory overflow-scroll h-screen">
         <PageWrapper id={'0'} scrollTo={'1'}>
