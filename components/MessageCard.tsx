@@ -1,7 +1,8 @@
 import React, { memo } from 'react';
 
-export default function MessageCard(props: { writer: string; message: string; timestamp: number }) {
+export default function MessageCard(props: { writer: string; message: string; timestamp: string | number; }) {
   const now = new Date(props.timestamp);
+  const timestring = now.getUTCFullYear() + '/' + now.getUTCMonth() + '/' + now.getDate();
 
   return (
     <div
@@ -13,7 +14,7 @@ export default function MessageCard(props: { writer: string; message: string; ti
     >
       <div className="col-span-2 flex flex-row">
         <div className="basis-1/2 font-bold text-left">{props.writer}</div>
-        <div className="basis-1/2 text-right">{now.getUTCMonth() + '/' + now.getDate()}</div>
+        <div className="basis-1/2 text-right">{ timestring }</div>
       </div>
       <div className="col-span-2">{props.message}</div>
     </div>

@@ -1,6 +1,7 @@
-import React, { FormEvent, useState, useEffect, ReactNode } from 'react';
+import React, { FormEvent, useState } from 'react';
 import MessageCard from '@/components/MessageCard'
 import { useStateContext } from "@/components/StateContext";
+import {Alert} from "flowbite-react";
 
 const createMessage = async (newMessage: {writer: string, message: string}) => {
   const response = await fetch('/api/messages', {
@@ -14,14 +15,14 @@ const createMessage = async (newMessage: {writer: string, message: string}) => {
   return response.json();
 }
 
-function sanitizeInput(input) {
+function sanitizeInput(input: string) {
   // Remove any single quotes, backslashes, and semicolons from the input
-  const sanitizedInput = input.replace(/[<>'\\;]/g, '')
+  const sanitizedInput = input.replace(/[<>'\\;]/g, '').trim();
   return sanitizedInput
 }
 
 export default function Messages() {
-  const { messages, setMessages, setError } = useStateContext();
+  const { messages, setMessages, error, setError } = useStateContext();
   let [ messageWriter, setMessageWriter ] = useState("")
   let [ messageText, setMessageText ] = useState("")
 
@@ -45,11 +46,16 @@ export default function Messages() {
       setMessages(messages);
       setMessageWriter("");
       setMessageText("");
+      setError(null);
 
       return;
 
     } catch(err) {
-      setError(err);
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError(err)
+      }
     }
   };
 
@@ -70,12 +76,12 @@ export default function Messages() {
 
       <div className="h-48 w-full max-w-[500px] overflow-auto container">
         {messages.map(
-          (v: { writer: string; message: string; timestamp: number }, i: number) => {
+          (v: { writer: string; message: string; createdAt: string; }, i: number) => {
             return (
               <MessageCard
                 writer={v.writer}
                 message={v.message}
-                timestamp={v.timestamp}
+                timestamp={v.createdAt}
                 key={i}
               />
             );
@@ -129,6 +135,9 @@ export default function Messages() {
                 placeholder={"전하고 싶은 말 (100자 이내)"}
               />
             </label>
+
+            {error && <div><Alert color="failure"> { error } </Alert></div>}
+
             <button
               className="
                     bg-green-200

@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google';
-import React, {useEffect, useState, createContext, useContext} from 'react';
+import React, {useEffect, useState } from 'react';
+import { Alert } from 'flowbite-react';
 import { PrismaClient } from "@prisma/client";
+
 import PageWrapper from '@/components/PageWrapper';
 import Hello from '@/components/Hello';
 import Map from '@/components/Map';
@@ -41,8 +43,8 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home({ initialMessages }) {
-  const [messages, setMessages] = useState<Message[]>(initialMessages);
+export default function Home(props : { initialMessages: Message[] }) {
+  const [messages, setMessages] = useState(props.initialMessages);
   const [error, setError] = useState(null)
 
   useEffect(() => {
@@ -58,11 +60,12 @@ export default function Home({ initialMessages }) {
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
 
-    // alert("모바일 청첩장 아직 만드는 중!")
-    const handleErrors = (event) => {
-      setError(event.detail)
+    const handleErrors = (event: Event | CustomEvent) => {
+      setError((event as CustomEvent).detail)
     }
     window.addEventListener('httpError', handleErrors)
+
+    alert("모바일 청첩장 만드는 중!")
 
     return () => {
       window.removeEventListener('httpError', handleErrors)
@@ -82,7 +85,6 @@ export default function Home({ initialMessages }) {
 
       <StateContext.Provider value={{messages, setMessages, error, setError}}>
         <div className="snap-y snap-mandatory overflow-scroll h-screen">
-          {error && <div className="alert"> { alert(error.err) } </div>}
           <PageWrapper id={'0'} scrollTo={'1'}>
             <Hello />
           </PageWrapper>

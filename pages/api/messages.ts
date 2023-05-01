@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 class CustomError extends Error {
   code: number;
 
-  constructor(code, message) {
+  constructor(code: number, message: string) {
     super(message);
     this.code = code;
   }
@@ -54,13 +54,11 @@ export default async function handler(
 
     return;
   } catch(err) {
-    console.log('/api/messages', err.message);
-
     if (err instanceof CustomError) {
-      res.status(err.code).json({err: err.message});
-    } else {
-      res.status(500).json({err: err.message});
+      return res.status(err.code).json({message: err.message});
     }
-    return;
+    if (err instanceof Error) {
+      return res.status(500).json({message: err.message});
+    }
   }
 }
