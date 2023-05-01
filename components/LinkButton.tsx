@@ -1,5 +1,5 @@
 import React from 'react';
-import ScrollLink from '@/pages/components/ScrollLink';
+import ScrollLink from '@/components/ScrollLink';
 
 export default function LinkButton(props: { scrollTo: string; isLast?: boolean }) {
   const Path = () => {

@@ -17,6 +17,31 @@ const nextConfig = {
       },
     ],
   },
+
+
+  // webpack: (config, { isServer }) => {
+  //   // Fixes npm packages that de
+  //   // pend on `fs` module
+  //   if (!isServer) {
+  //     config.node = {
+  //       fs: 'empty'
+  //     }
+  //   }
+  //
+  //   return config
+  // }
+
+  webpack5: true,
+  webpack: (config) => {
+    config.resolve.fallback = {
+      fs: false,
+      child_process: false,
+    };
+
+    return config;
+  },
+
+
   // async rewrites() {
   //   return [
   //     {

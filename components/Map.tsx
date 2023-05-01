@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import navermapPic from '../../public/navermap.png';
-import tmapPic from '../../public/tmap.png';
-import kakaomapPic from '../../public/kakaomap.png';
-import theKPic from '../../public/thek.jpg';
-import walkPic from '../../public/walk.png';
-import busPic from '../../public/bus.png';
+import navermapPic from '../public/navermap.png';
+import tmapPic from '../public/tmap.png';
+import kakaomapPic from '../public/kakaomap.png';
+import theKPic from '../public/thek.jpg';
+import walkPic from '../public/walk.png';
+import busPic from '../public/bus.png';
 
 export default function Map() {
   return (

@@ -1,5 +1,4 @@
 import { Accordion } from 'flowbite-react';
-import LinkButton from '@/pages/components/LinkButton';
 import React from 'react';
 
 const bgStyle= {

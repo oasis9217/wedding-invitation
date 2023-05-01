@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkButton from '@/pages/components/LinkButton';
+import LinkButton from '@/components/LinkButton';
 
 export default function PageWrapper(props: {
   id: string;
