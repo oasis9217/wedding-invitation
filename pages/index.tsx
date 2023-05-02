@@ -1,6 +1,6 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import { Inter } from 'next/font/google';
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PageWrapper from '@/components/PageWrapper';
 import Hello from '@/components/Hello';
@@ -8,19 +8,19 @@ import Map from '@/components/Map';
 import Gallery from '@/components/Gallery';
 import Messages from '@/components/Messages';
 import QnA from '@/components/Qna';
-import { StateContext } from '@/components/StateContext'
+import { StateContext } from '@/components/StateContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export interface Message {
-  id?: string,
-  writer: string,
-  message: string,
-  createdAt?: string,
+  id?: string;
+  writer: string;
+  message: string;
+  createdAt?: string;
 }
 
 export default function Home() {
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -36,29 +36,40 @@ export default function Home() {
     });
 
     const handleErrors = (event: Event | CustomEvent) => {
-      setError((event as CustomEvent).detail)
-    }
-    window.addEventListener('httpError', handleErrors)
+      setError((event as CustomEvent).detail);
+    };
+    window.addEventListener('httpError', handleErrors);
 
-    alert("모바일 청첩장 만드는 중!")
+    // alert("모바일 청첩장 만드는 중!")
 
     return () => {
-      window.removeEventListener('httpError', handleErrors)
-    }
-  })
+      window.removeEventListener('httpError', handleErrors);
+    };
+  });
 
   return (
     <div className="bg-scroll bg-center bg-no-repeat bg-cover bg-my_bg_sm">
       <Head>
         <meta property="og:title" content="김정선🤵‍♂️👰‍♀️류송희️" key="title" />
-        <meta property="og:url" content="https://oasis9217.github.io/wedding-invitation/" key="url" />
-        <meta property="og:type" content="website" key="type"/>
-        <meta property="og:image" content="https://drive.google.com/uc?id=1YItuBPYiAbccoTfAojd4KIzvApBu9UMB" key="image" />
+        <meta
+          property="og:url"
+          content="https://oasis9217.github.io/wedding-invitation/"
+          key="url"
+        />
+        <meta property="og:type" content="website" key="type" />
+        <meta
+          property="og:image"
+          content="https://drive.google.com/uc?id=1YItuBPYiAbccoTfAojd4KIzvApBu9UMB"
+          key="image"
+        />
         <meta property="og:description" content="으아니 얘가 결혼을!?" key="desc" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover"
+        />
       </Head>
 
-      <StateContext.Provider value={{error, setError}}>
+      <StateContext.Provider value={{ error, setError }}>
         <div className="snap-y snap-mandatory overflow-scroll h-screen">
           <PageWrapper id={'0'} scrollTo={'1'}>
             <Hello />

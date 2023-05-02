@@ -1,10 +1,10 @@
 import React, { FormEvent, useState, useEffect } from 'react';
+import { Alert } from "flowbite-react";
 import MessageCard from '@/components/MessageCard'
 import { useStateContext } from "@/components/StateContext";
-import { Alert } from "flowbite-react";
+import { CustomError } from "@/libs/errors";
 
-
-const createMessage = async (newMessage: {writer: string, message: string}) => {
+const appendMessageToSheet = async (newMessage: {writer: string, message: string}) => {
   const response = await fetch('/api/sheets', {
     method: 'POST',
     body: JSON.stringify(newMessage),
@@ -16,7 +16,7 @@ const createMessage = async (newMessage: {writer: string, message: string}) => {
   return response.json();
 }
 
-const getAllMessage = async () => {
+const getAllMessageFromSheet = async () => {
   const response = await fetch('/api/sheets', {
     method: 'GET',
   })
@@ -42,7 +42,7 @@ export default function Messages() {
   useEffect(() => {
     (async () => {
       if (!fetched) {
-        const allMessages = await getAllMessage()
+        const allMessages = await getAllMessageFromSheet()
         setMessages(allMessages);
       }
     })();
@@ -59,25 +59,20 @@ export default function Messages() {
       messageWriter = sanitizeInput(messageWriter);
       messageText = sanitizeInput(messageText);
 
-      await createMessage({
+      await appendMessageToSheet({
         writer: messageWriter,
         message: messageText,
       })
 
-      messages.unshift({
-        writer: messageWriter,
-        message: messageText,
-      });
-
-      setMessages(messages);
       setMessageWriter("");
       setMessageText("");
       setError(null);
+      setFetched(false);
 
       return;
 
     } catch(err) {
-      if ('message' in err) {
+      if (err instanceof CustomError || err instanceof Error) {
         setError(err.message);
       } else {
         setError(err)
