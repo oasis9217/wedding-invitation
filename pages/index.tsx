@@ -40,7 +40,7 @@ export default function Home() {
     };
     window.addEventListener('httpError', handleErrors);
 
-    // alert("모바일 청첩장 만드는 중!")
+    alert("모바일 청첩장 만드는 중!")
 
     return () => {
       window.removeEventListener('httpError', handleErrors);
