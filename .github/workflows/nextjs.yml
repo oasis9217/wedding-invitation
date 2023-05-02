@@ -73,11 +73,15 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+
       - name: Create .env file
         shell: bash
+        env:
+          DOTENV_CONTENTS: ${{ secrets.DOTENV_CONTENTS }}
         run: |
           pwd
-          echo "${{ secrets.DOTENV_CONTENTS }}" >> .env
+          echo "$DOTENV_CONTENTS" >> .env
+          echo "$DOTENV_CONTENTS" >> .env.production
       - name: Build with Next.js
         env:
           GOOGLE_SHEETS_PRIVATE_KEY: ${{ secrets.GOOGLE_SHEETS_PRIVATE_KEY }}
