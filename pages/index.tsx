@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google';
 import React, {useEffect, useState } from 'react';
-import { Alert } from 'flowbite-react';
-import { PrismaClient } from "@prisma/client";
 
 import PageWrapper from '@/components/PageWrapper';
 import Hello from '@/components/Hello';
@@ -13,7 +11,6 @@ import QnA from '@/components/Qna';
 import { StateContext } from '@/components/StateContext'
 
 const inter = Inter({ subsets: ['latin'] });
-const prisma = new PrismaClient();
 
 export interface Message {
   id?: string,
@@ -22,29 +19,7 @@ export interface Message {
   createdAt?: string,
 }
 
-export async function getServerSideProps() {
-  try {
-    let allMessages = await prisma.message.findMany({
-      orderBy: { id: 'desc'}
-    })
-    allMessages = JSON.parse(JSON.stringify(allMessages))
-
-    return {
-      props: {
-        initialMessages: allMessages,
-      },
-    };
-  } catch (err) {
-    console.error('getServerSideProps()', err);
-    return {
-      props: {},
-      notFound: true,
-    };
-  }
-}
-
-export default function Home(props : { initialMessages: Message[] }) {
-  const [messages, setMessages] = useState(props.initialMessages);
+export default function Home() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
@@ -83,7 +58,7 @@ export default function Home(props : { initialMessages: Message[] }) {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
       </Head>
 
-      <StateContext.Provider value={{messages, setMessages, error, setError}}>
+      <StateContext.Provider value={{error, setError}}>
         <div className="snap-y snap-mandatory overflow-scroll h-screen">
           <PageWrapper id={'0'} scrollTo={'1'}>
             <Hello />

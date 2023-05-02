@@ -1,16 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client"
+import { CustomError } from "@/libs/errors";
 
 const prisma = new PrismaClient();
-
-class CustomError extends Error {
-  code: number;
-
-  constructor(code: number, message: string) {
-    super(message);
-    this.code = code;
-  }
-}
 
 export default async function handler(
   req: NextApiRequest,
@@ -54,6 +46,8 @@ export default async function handler(
 
     return;
   } catch(err) {
+    console.log(err)
+
     if (err instanceof CustomError) {
       return res.status(err.code).json({message: err.message});
     }

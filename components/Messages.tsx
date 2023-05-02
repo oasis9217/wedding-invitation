@@ -1,10 +1,11 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useState, useEffect } from 'react';
 import MessageCard from '@/components/MessageCard'
 import { useStateContext } from "@/components/StateContext";
-import {Alert} from "flowbite-react";
+import { Alert } from "flowbite-react";
+
 
 const createMessage = async (newMessage: {writer: string, message: string}) => {
-  const response = await fetch('/api/messages', {
+  const response = await fetch('/api/sheets', {
     method: 'POST',
     body: JSON.stringify(newMessage),
   })
@@ -15,16 +16,41 @@ const createMessage = async (newMessage: {writer: string, message: string}) => {
   return response.json();
 }
 
+const getAllMessage = async () => {
+  const response = await fetch('/api/sheets', {
+    method: 'GET',
+  })
+
+  if (!response.ok) {
+    throw await response.json();
+  }
+  return response.json();
+}
+
 function sanitizeInput(input: string) {
   // Remove any single quotes, backslashes, and semicolons from the input
-  const sanitizedInput = input.replace(/[<>'\\;]/g, '').trim();
-  return sanitizedInput
+  return input.replace(/[<>'\\;]/g, '').trim();
 }
 
 export default function Messages() {
-  const { messages, setMessages, error, setError } = useStateContext();
+  const { error, setError } = useStateContext();
+  const [ messages, setMessages ] = useState([]);
+  const [ fetched, setFetched ] = useState(false);
   let [ messageWriter, setMessageWriter ] = useState("")
   let [ messageText, setMessageText ] = useState("")
+
+  useEffect(() => {
+    (async () => {
+      if (!fetched) {
+        const allMessages = await getAllMessage()
+        setMessages(allMessages);
+      }
+    })();
+
+    return () => {
+      setFetched(true)
+    }
+  }, [ fetched ])
 
   const handleSubmit = async (e: FormEvent) => {
     try {
@@ -51,7 +77,7 @@ export default function Messages() {
       return;
 
     } catch(err) {
-      if (err instanceof Error) {
+      if ('message' in err) {
         setError(err.message);
       } else {
         setError(err)
