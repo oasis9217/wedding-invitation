@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -17,39 +18,7 @@ const nextConfig = {
       },
     ],
   },
-
-
-  // webpack: (config, { isServer }) => {
-  //   // Fixes npm packages that de
-  //   // pend on `fs` module
-  //   if (!isServer) {
-  //     config.node = {
-  //       fs: 'empty'
-  //     }
-  //   }
-  //
-  //   return config
-  // }
-
-  webpack5: true,
-  webpack: (config) => {
-    config.resolve.fallback = {
-      fs: false,
-      child_process: false,
-    };
-
-    return config;
-  },
-
-
-  // async rewrites() {
-  //   return [
-  //     {
-  //       source: '/api/:path*',
-  //       destination: 'http://localhost:3000/:path*'
-  //     }
-  //   ]
-  // }
+  // webpack5: true,
 }
 
 module.exports = nextConfig
