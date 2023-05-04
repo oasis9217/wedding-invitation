@@ -98,7 +98,7 @@ jobs:
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
-          key: {%- raw -%} ${{ secrets.SSH_PRIVATE_KEY }} {% endraw%}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
       - name: Adding Known Hosts
         run: ssh-keyscan -H wedding.songhuiryu.dev >> ~/.ssh/known_hosts
