@@ -10,17 +10,11 @@ import Messages from '@/components/Messages';
 import QnA from '@/components/Qna';
 import { StateContext } from '@/components/StateContext';
 
+
 const inter = Inter({ subsets: ['latin'] });
 
-export interface Message {
-  id?: string;
-  writer: string;
-  message: string;
-  createdAt?: string;
-}
-
 export default function Home() {
-  const [error, setError] = useState(null);
+  const [ error, setError ] = useState(null);
 
   useEffect(() => {
     // First we get the viewport height and we multiple it by 1% to get a value for a vh unit

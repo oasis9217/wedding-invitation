@@ -2,7 +2,7 @@ import React, { FormEvent, useState, useEffect } from 'react';
 import { Alert } from "flowbite-react";
 import MessageCard from '@/components/MessageCard'
 import { useStateContext } from "@/components/StateContext";
-import { CustomError } from "@/libs/errors";
+
 
 const appendMessageToSheet = async (newMessage: {writer: string, message: string}) => {
   const response = await fetch('/api/sheets', {
@@ -40,6 +40,8 @@ export default function Messages() {
   let [ messageText, setMessageText ] = useState("")
 
   useEffect(() => {
+    console.log('useEffect', messages[0], Date.now(), fetched);
+
     (async () => {
       if (!fetched) {
         const allMessages = await getAllMessageFromSheet()
@@ -50,7 +52,7 @@ export default function Messages() {
     return () => {
       setFetched(true)
     }
-  }, [ fetched ])
+  }, [ fetched, messages ])
 
   const handleSubmit = async (e: FormEvent) => {
     try {
@@ -93,7 +95,7 @@ export default function Messages() {
     >
 
       <div className="h-48 w-full max-w-[500px] overflow-auto container">
-        {messages.map(
+        {messages?.map(
           (v: { writer: string; message: string; createdAt: string; }, i: number) => {
             return (
               <MessageCard

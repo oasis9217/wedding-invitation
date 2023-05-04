@@ -15,9 +15,9 @@ export default function Gallery() {
       "
     >
       <div className="w-80 max-w-[500px] h-80 max-h-[500px] sm:h-80 xl:h-96">
-        <Carousel slideInterval={5000}>
+        <Carousel slideInterval={5000} className="snap-x scroll-smooth">
           {Array.from({length: 8}, (v, i) => {
-            return <Image key={i} src={`/image-${i+1}.jpg`} width={500} height={500} alt="" priority={true}/>
+            return <Image className="snap-center" key={i} src={`/image-${i+1}.jpg`} width={500} height={500} alt="" priority={true}/>
           }) }
         </Carousel>
       </div>
