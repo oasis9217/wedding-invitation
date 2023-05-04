@@ -1,9 +1,6 @@
 import Image from 'next/image';
 import { Carousel } from 'flowbite-react';
 
-const images = [
-  "1krKIUCQQWr-mL_9y0WZj-QYVhxsQjBR-",
-];
 
 export default function Gallery() {
   return (
@@ -17,17 +14,14 @@ export default function Gallery() {
         space-y-5
       "
     >
-      <div></div>
-      <div className="w-full max-w-[500px] h-52 sm:h-64 xl:h-80 2xl:h-96">
+      <div className="w-80 max-w-[500px] h-80 max-h-[500px] sm:h-80 xl:h-96">
         <Carousel slideInterval={5000}>
-          {images.map((i) => {
-            const actualImageUrl = `https://drive.google.com/uc?id=${i}`;
-            return (
-              <Image key={i} src={`/api/images?imageUrl=${actualImageUrl}`} width={700} height={300} alt="" priority={true}/>
-            );
-          })}
+          {Array.from({length: 8}, (v, i) => {
+            return <Image key={i} src={`/image-${i+1}.jpg`} width={500} height={500} alt="" priority={true}/>
+          }) }
         </Carousel>
       </div>
+      <div> 보정을 아직 못했다는 슬픈 소문이...🥲 </div>
     </main>
   );
 }

@@ -21,7 +21,7 @@ export default function Map() {
         space-y-5
       "
     >
-      <div className="space-y-1 text-left">
+      <div className="space-y-0.5 text-left">
         <p className="text-2xl font-extrabold">더케이호텔</p>
         <p className="text-lg">서울 서초구 바우뫼로12길 70</p>
         <ul className="list-inside text-sm">
@@ -35,8 +35,6 @@ export default function Map() {
           </li>
         </ul>
       </div>
-
-      <div></div>
 
       <div className="flex items-center space-x-10 place-self-center">
         <button>
@@ -58,7 +56,7 @@ export default function Map() {
         </button>
       </div>
 
-      <div className="w-full max-w-[400px] h-36 sm:h-56 lg:h-60 max-h-[400px] overflow-hidden">
+      <div className="w-full max-w-[400px] h-56 sm:h-44 lg:h-56 max-h-56">
         <div className="overflow-hidden">
           <Image className="rounded-lg" src={theKPic} alt="The K Hotel" />
         </div>

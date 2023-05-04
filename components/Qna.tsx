@@ -26,10 +26,9 @@ export default function Qna() {
         place-items-center
         justify-center
         justify-between
-        space-y-5
       "
     >
-      <Accordion className="w-full max-w-[500px] max-h-[500px]">
+      <Accordion className="w-full max-w-screen max-h-full">
         { questions.map(((q, i) => {
           return (
             <Accordion.Panel key={i}>

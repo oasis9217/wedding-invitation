@@ -23,8 +23,8 @@ export default function PageWrapper(props: {
   };
 
   return (
-    <div className="snap-start snap-always">
-      <section className="relative min-h-screen max-h-screen" id={'section-' + props.id}>
+    <div className="snap-start snap-always max-w-[640px] place-self-center">
+      <section className="relative min-h-screen max-h-screen max-w-full" id={'section-' + props.id}>
         <div className="">
           <Header title={props.title || ''} />
         </div>

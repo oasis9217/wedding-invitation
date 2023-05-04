@@ -40,8 +40,6 @@ export default function Home() {
     };
     window.addEventListener('httpError', handleErrors);
 
-    alert("모바일 청첩장 만드는 중!")
-
     return () => {
       window.removeEventListener('httpError', handleErrors);
     };
@@ -53,7 +51,7 @@ export default function Home() {
         <meta property="og:title" content="김정선🤵‍♂️👰‍♀️류송희️" key="title" />
         <meta
           property="og:url"
-          content="https://oasis9217.github.io/wedding-invitation/"
+          content="https://wedding.songhuiryu.dev"
           key="url"
         />
         <meta property="og:type" content="website" key="type" />

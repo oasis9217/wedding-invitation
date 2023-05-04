@@ -72,11 +72,8 @@ export default function Messages() {
       return;
 
     } catch(err) {
-      if (err instanceof CustomError || err instanceof Error) {
-        setError(err.message);
-      } else {
-        setError(err)
-      }
+      // @ts-ignore
+      setError(err.message);
     }
   };
 
