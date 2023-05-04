@@ -7,10 +7,7 @@ export default function MessageCard(props: { writer: string; message: string; ti
   return (
     <div
       key={'msg:' + props.writer}
-      className="grid grid-cols-2 gap-1 my-1 p-2 tracking-tighter text-justify rounded-lg"
-      style={{
-        backgroundColor: 'rgba(255,255,255,0.5)',
-      }}
+      className="grid grid-cols-2 gap-1 my-1 p-2 tracking-tighter text-justify rounded-lg bg-transparent text-purple-900"
     >
       <div className="col-span-2 flex flex-row">
         <div className="basis-1/2 font-bold text-left">{props.writer}</div>

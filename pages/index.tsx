@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Inter } from 'next/font/google';
+import { Hahmlet } from 'next/font/google';
 import React, { useEffect, useState } from 'react';
 
 import PageWrapper from '@/components/PageWrapper';
@@ -11,7 +11,7 @@ import QnA from '@/components/Qna';
 import { StateContext } from '@/components/StateContext';
 
 
-const inter = Inter({ subsets: ['latin'] });
+const googleFont = Hahmlet({ subsets: ['latin'] });
 
 export default function Home() {
   const [ error, setError ] = useState(null);

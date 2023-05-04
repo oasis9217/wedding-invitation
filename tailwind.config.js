@@ -16,6 +16,12 @@ module.exports = {
         'my_bg_sm': "url('https://drive.google.com/uc?id=1YItuBPYiAbccoTfAojd4KIzvApBu9UMB')",
         'my_bg_md': "url('https://drive.google.com/uc?id=1-M_yBv8fyZT2XzHo2Xw27pmkBAzIA0qM')",
       },
+      fontFamily: {
+        gowun: ['Gowun Batang', 'serif'],
+      },
+      colors: {
+        'transparent': 'rgba(255,255,255,0.6)',
+      }
     },
   },
   plugins: [

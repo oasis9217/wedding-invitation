@@ -113,7 +113,7 @@ export default function Messages() {
         <form onSubmit={handleSubmit} method="post" id="messageForm">
           <div className="grid grid-cols-1 gap-2">
             <label className="block">
-              <span className="text-white">글쓴이</span>
+              <span>글쓴이</span>
               <input
                 type="text"
                 className="
@@ -123,8 +123,8 @@ export default function Messages() {
                         rounded-md
                         bg-gray-100
                         border-transparent
-                        focus:border-gray-500 focus:bg-white focus:ring-0
-                        text-gray-700
+                        focus:border-gray-500 focus:bg-white focus:ring-purple-200
+                        text-gray-900
                       "
                 id="writerElement"
                 name="writerElement"
@@ -135,7 +135,7 @@ export default function Messages() {
             </label>
 
             <label className="block">
-              <span className="text-white">메세지</span>
+              <span>메세지</span>
               <textarea
                 className="
                         mt-1
@@ -144,8 +144,8 @@ export default function Messages() {
                         rounded-md
                         bg-gray-100
                         border-transparent
-                        focus:border-gray-500 focus:bg-white focus:ring-0
-                        text-gray-700
+                        focus:border-gray-500 focus:bg-white focus:ring-purple-200
+                        text-gray-900
                       "
                 rows={3}
                 id="messageElement"
@@ -160,13 +160,13 @@ export default function Messages() {
 
             <button
               className="
-                    bg-green-200
-                    hover:bg-green-600
+                    bg-purple-200
+                    hover:bg-purple-400
                     font-bold
                     py-1
                     px-1
                     rounded-full
-                    text-gray-700
+                    text-gray-900
                   "
               type="submit"
             >

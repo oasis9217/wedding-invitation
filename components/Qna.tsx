@@ -1,9 +1,6 @@
 import { Accordion } from 'flowbite-react';
 import React from 'react';
 
-const bgStyle= {
-  backgroundColor: 'rgba(255,255,255,0.5)',
-}
 
 const questions = [
   {q: '🚗 주차 가능한가요?', a: '네, 넉넉히 가능합니다.'},
@@ -32,9 +29,9 @@ export default function Qna() {
         { questions.map(((q, i) => {
           return (
             <Accordion.Panel key={i}>
-              <Accordion.Title className="bg-gray-100"> {q.q} </Accordion.Title>
-              <Accordion.Content style={bgStyle} >
-                <p className="mb-2 text-gray-700 dark:text-gray-900"> {q.a}</p>
+              <Accordion.Title className="bg-gray-100 text-gray-900"> {q.q} </Accordion.Title>
+              <Accordion.Content className="bg-transparent" >
+                <p className="mb-2 text-gray-900"> {q.a}</p>
               </Accordion.Content>
             </Accordion.Panel>
           )
