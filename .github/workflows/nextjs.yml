@@ -94,4 +94,4 @@ jobs:
       - name: Adding Known Hosts
         run: ssh-keyscan -H wedding.songhuiryu.dev >> ~/.ssh/known_hosts
       - name: Deploy with rsync
-        run: rsync -avz .next ${{ secrets.SSH_USER }}@wedding.songhuiryu.dev:/home/ryu/wedding-invitation/.next
+        run: rsync -avz .next/ ${{ secrets.SSH_USER }}@wedding.songhuiryu.dev:/home/ryu/wedding-invitation/.next/
