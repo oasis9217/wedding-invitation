@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 export default function MessageCard(props: { writer: string; message: string; timestamp: string | number; }) {
   const now = new Date(props.timestamp);
-  const timestring = now.getUTCFullYear() + '/' + now.getUTCMonth() + '/' + now.getDate();
+  const timestring = now.getUTCFullYear() + '/' + (now.getUTCMonth()+1) + '/' + now.getDate();
 
   return (
     <div
