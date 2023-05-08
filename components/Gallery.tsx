@@ -17,7 +17,7 @@ export default function Gallery() {
       <div className="w-80 max-w-[500px] h-80 max-h-[500px] sm:h-80 sm:w-80 md:h-96 md:w-80">
         <Carousel slideInterval={5000} className="snap-x snap-mandatory">
           {Array.from({length: 8}, (v, i) => {
-            return <Image className="snap-start snap-always scroll-p-2" key={i} src={`/image-${i+1}.jpg`} width={500} height={500} alt="" priority={true}/>
+            return <Image className="snap-start scroll-p-2" key={i} src={`/image-${i+1}.jpg`} width={500} height={500} alt="" priority={true}/>
           }) }
         </Carousel>
       </div>

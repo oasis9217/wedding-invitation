@@ -152,7 +152,7 @@ export default function Messages() {
                 name="messageElement"
                 value={messageText}
                 onChange={(e) => {setMessageText(e.target.value)}}
-                placeholder={"전하고 싶은 말 (100자 이내)"}
+                placeholder={"전하고 싶은 말 (300자 이내)"}
               />
             </label>
 
