@@ -38,7 +38,6 @@ export default function Messages() {
   const [ fetched, setFetched ] = useState(false);
   let [ messageWriter, setMessageWriter ] = useState("")
   let [ messageText, setMessageText ] = useState("")
-  let [ messageTextLength, setMessageTextLength ] = useState(0)
 
   useEffect(() => {
     (async () => {
@@ -153,7 +152,6 @@ export default function Messages() {
                 name="messageElement"
                 value={messageText}
                 onChange={(e) => {setMessageText(e.target.value)}}
-                onkeyup={(e) => {setMessageTextLength(e.target.value.length)}}
                 placeholder={"전하고 싶은 말 (300자 이내)"}
                 maxLength={300}
               />
