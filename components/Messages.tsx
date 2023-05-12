@@ -1,5 +1,5 @@
 import React, { FormEvent, useState, useEffect } from 'react';
-import { Alert } from "flowbite-react";
+import { Alert, Badge } from "flowbite-react";
 import MessageCard from '@/components/MessageCard'
 import { useStateContext } from "@/components/StateContext";
 
@@ -38,6 +38,7 @@ export default function Messages() {
   const [ fetched, setFetched ] = useState(false);
   let [ messageWriter, setMessageWriter ] = useState("")
   let [ messageText, setMessageText ] = useState("")
+  let [ messageTextLength, setMessageTextLength ] = useState(0)
 
   useEffect(() => {
     (async () => {
@@ -58,6 +59,8 @@ export default function Messages() {
 
       messageWriter = sanitizeInput(messageWriter);
       messageText = sanitizeInput(messageText);
+
+
 
       await appendMessageToSheet({
         writer: messageWriter,
@@ -107,7 +110,7 @@ export default function Messages() {
         )}
       </div>
 
-      <div className="h-full w-full max-w-[500px]">
+      <div className="h-full w-full max-w-[500px] relative">
         <form onSubmit={handleSubmit} method="post" id="messageForm">
           <div className="grid grid-cols-1 gap-2">
             <label className="block">
@@ -133,7 +136,7 @@ export default function Messages() {
             </label>
 
             <label className="block">
-              <span>메세지</span>
+              <span> 메세지 ({messageText.length}/{300}) </span>
               <textarea
                 className="
                         mt-1
@@ -150,7 +153,9 @@ export default function Messages() {
                 name="messageElement"
                 value={messageText}
                 onChange={(e) => {setMessageText(e.target.value)}}
-                placeholder={"전하고 싶은 말 (500자 이내)"}
+                onkeyup={(e) => {setMessageTextLength(e.target.value.length)}}
+                placeholder={"전하고 싶은 말 (300자 이내)"}
+                maxLength={300}
               />
             </label>
 

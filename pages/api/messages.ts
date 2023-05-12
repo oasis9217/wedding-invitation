@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         throw new CustomError(400, '글쓴이 혹은 메세지가 너무 짧습니다.');
       }
 
-      if (writer.length > 15 || message.length > 500) {
+      if (writer.length > 15 || message.length > 300) {
         throw new CustomError(400, '글쓴이 혹은 메세지가 너무 깁니다.');
       }
 
