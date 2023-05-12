@@ -2,12 +2,12 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { google } from 'googleapis';
 import { CustomError } from '@/libs/errors';
 
-const target = ['https://www.googleapis.com/auth/spreadsheets'];
+const targets = ['https://www.googleapis.com/auth/spreadsheets'];
 const jwt = new google.auth.JWT(
-  process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
+  process.env.GOOGLE_API_CLIENT_EMAIL,
   undefined,
-  (process.env.GOOGLE_SHEETS_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
-  target,
+  (process.env.GOOGLE_API_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
+  targets,
 );
 const sheets = google.sheets({ version: 'v4', auth: jwt });
 
@@ -16,7 +16,7 @@ export async function appendMessage(writer: string, message: string) {
     const now = new Date();
     // @ts-ignore
     const response = await sheets.spreadsheets.values.append({
-      spreadsheetId: process.env.SPREADSHEET_ID,
+      spreadsheetId: process.env.GOOGLE_SHEETS_ID,
       range: 'messages', // sheet name
       valueInputOption: 'USER_ENTERED',
       resource: {
@@ -34,7 +34,7 @@ export async function appendMessage(writer: string, message: string) {
 export async function getMessageList() {
   try {
     const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: process.env.SPREADSHEET_ID,
+      spreadsheetId: process.env.GOOGLE_SHEETS_ID,
       range: 'messages', // sheet name
     });
 
@@ -64,7 +64,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         throw new CustomError(400, '글쓴이 혹은 메세지가 너무 짧습니다.');
       }
 
-      if (writer.length > 15 || message.length > 100) {
+      if (writer.length > 15 || message.length > 500) {
         throw new CustomError(400, '글쓴이 혹은 메세지가 너무 깁니다.');
       }
 

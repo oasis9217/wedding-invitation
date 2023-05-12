@@ -25,7 +25,7 @@ export default function Qna() {
         justify-between
       "
     >
-      <Accordion className="w-full max-w-screen max-h-full">
+      <Accordion className="w-full max-w-screen max-h-screen overflow-y-scroll">
         { questions.map(((q, i) => {
           return (
             <Accordion.Panel key={i}>

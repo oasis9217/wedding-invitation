@@ -7,6 +7,7 @@ import Hello from '@/components/Hello';
 import Map from '@/components/Map';
 import Gallery from '@/components/Gallery';
 import Messages from '@/components/Messages';
+import Attend from '@/components/Attend';
 import QnA from '@/components/Qna';
 import { StateContext } from '@/components/StateContext';
 
@@ -79,7 +80,11 @@ export default function Home() {
             <Messages />
           </PageWrapper>
 
-          <PageWrapper id={'4'} scrollTo={'0'} title={'QnA'} isLast={true}>
+          <PageWrapper id={'4'} scrollTo={'5'} title={'참석 여부 알리기'}>
+            <Attend />
+          </PageWrapper>
+
+          <PageWrapper id={'5'} scrollTo={'0'} title={'QnA'} isLast={true}>
             <QnA />
           </PageWrapper>
         </div>

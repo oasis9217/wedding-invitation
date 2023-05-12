@@ -40,8 +40,6 @@ export default function Messages() {
   let [ messageText, setMessageText ] = useState("")
 
   useEffect(() => {
-    console.log('useEffect', messages[0], Date.now(), fetched);
-
     (async () => {
       if (!fetched) {
         const allMessages = await getAllMessageFromSheet()
@@ -152,7 +150,7 @@ export default function Messages() {
                 name="messageElement"
                 value={messageText}
                 onChange={(e) => {setMessageText(e.target.value)}}
-                placeholder={"전하고 싶은 말 (300자 이내)"}
+                placeholder={"전하고 싶은 말 (500자 이내)"}
               />
             </label>
 
