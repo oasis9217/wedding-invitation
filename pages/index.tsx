@@ -46,7 +46,7 @@ export default function Home() {
         <meta property="og:type" content="website" key="type" />
         <meta
           property="og:image"
-          content="https://drive.google.com/uc?id=1VP2HparctyskRuSOcQ9qu6owx6NUAdR7"
+          content="https://drive.google.com/uc?id=1LkYq_EAm9pErrxm3OmXDwy1Il4OH3xbD"
           key="image"
         />
         <meta property="og:description" content="으아니 얘가 결혼을!?" key="desc" />
