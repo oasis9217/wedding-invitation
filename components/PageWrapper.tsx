@@ -20,22 +20,16 @@ export default function PageWrapper(props: {
   };
 
   const Content = () => {
-    return <div>{props.children}</div>;
+    return <div className="px-10">{props.children}</div>;
   };
 
-  const properties = "snap-start h-screen max-h-screen content-center place-items-center justify-around";
+  const properties = "relative snap-start snap-always h-screen max-h-screen content-center place-items-center justify-around";
 
   return (
-    <div className={properties + ((props.id === '0') ? "" : " backdrop-blur-lg") }>
-      <section className="relative min-h-screen" id={'section-' + props.id}>
-        <div className="">
-          <Header title={props.title || ''} />
-        </div>
-        <div className="px-10 h-full min-h-full">
-          <Content />
-        </div>
+    <section className={properties + ((props.id === '0') ? "" : " backdrop-blur-lg")} id={'section-' + props.id}>
+        <Header title={props.title || ''} />
+        <Content />
         <LinkButton scrollTo={props.scrollTo} isLast={props.isLast || false} />
-      </section>
-    </div>
+    </section>
   );
 }
