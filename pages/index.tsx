@@ -11,11 +11,10 @@ import Attend from '@/components/Attend';
 import QnA from '@/components/Qna';
 import { StateContext } from '@/components/StateContext';
 
-
 const googleFont = Hahmlet({ subsets: ['latin'] });
 
 export default function Home() {
-  const [ error, setError ] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -44,11 +43,7 @@ export default function Home() {
     <div>
       <Head>
         <meta property="og:title" content="김정선🤵‍♂️👰‍♀️류송희️" key="title" />
-        <meta
-          property="og:url"
-          content="https://wedding.songhuiryu.dev"
-          key="url"
-        />
+        <meta property="og:url" content="https://wedding.songhuiryu.dev" key="url" />
         <meta property="og:type" content="website" key="type" />
         <meta
           property="og:image"
@@ -65,7 +60,7 @@ export default function Home() {
       <StateContext.Provider value={{ error, setError }}>
         <div className="snap-y snap-mandatory overflow-scroll h-screen bg-scroll bg-no-repeat bg-cover bg-main md:bg-contain">
           <PageWrapper id={'0'} scrollTo={'1'} isFront={true}>
-            <Hello className=""/>
+            <Hello />
           </PageWrapper>
 
           <PageWrapper id={'1'} scrollTo={'2'} title={'오시는 길'}>
