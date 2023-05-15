@@ -31,5 +31,10 @@ body {
 }
 
 section {
-  color: white;
+  color: #562b9c;
+}
+
+.content-text {
+  color: #562b9c;
+  background: rgba(255, 255, 255, 0.5);
 }

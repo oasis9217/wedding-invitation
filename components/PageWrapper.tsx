@@ -6,6 +6,7 @@ export default function PageWrapper(props: {
   children: React.ReactNode;
   scrollTo: string;
   title?: string;
+  isFront?: boolean;
   isLast?: boolean;
 }) {
   const Header = (props: { title?: string }) => {
@@ -22,8 +23,10 @@ export default function PageWrapper(props: {
     return <div>{props.children}</div>;
   };
 
+  const properties = "snap-start snap-always max-w-[31rem]";
+
   return (
-    <div className="snap-start snap-always max-w-[640px] place-self-center">
+    <div className={properties + ((props.id === '0') ? "" : " backdrop-blur-lg") }>
       <section className="relative min-h-screen max-h-screen max-w-full" id={'section-' + props.id}>
         <div className="">
           <Header title={props.title || ''} />

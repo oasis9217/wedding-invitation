@@ -41,7 +41,7 @@ export default function Home() {
   });
 
   return (
-    <div className="bg-scroll bg-center bg-no-repeat bg-cover bg-my_bg_sm">
+    <div>
       <Head>
         <meta property="og:title" content="김정선🤵‍♂️👰‍♀️류송희️" key="title" />
         <meta
@@ -63,9 +63,9 @@ export default function Home() {
       </Head>
 
       <StateContext.Provider value={{ error, setError }}>
-        <div className="snap-y snap-mandatory overflow-scroll h-screen">
-          <PageWrapper id={'0'} scrollTo={'1'}>
-            <Hello />
+        <div className="snap-y snap-mandatory overflow-scroll h-screen bg-scroll bg-no-repeat bg-cover bg-main md:bg-contain">
+          <PageWrapper id={'0'} scrollTo={'1'} isFront={true}>
+            <Hello className=""/>
           </PageWrapper>
 
           <PageWrapper id={'1'} scrollTo={'2'} title={'오시는 길'}>

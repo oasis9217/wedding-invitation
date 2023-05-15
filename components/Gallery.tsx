@@ -21,7 +21,7 @@ export default function Gallery() {
           }) }
         </Carousel>
       </div>
-      <div> 보정을 아직 못했다는 슬픈 소문이...🥲 </div>
+      <div className="content-text"> 보정을 아직 못했다는 슬픈 소문이...🥲 </div>
     </main>
   );
 }

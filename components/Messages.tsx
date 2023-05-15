@@ -1,5 +1,5 @@
 import React, { FormEvent, useState, useEffect } from 'react';
-import { Alert, Badge } from "flowbite-react";
+import { Alert } from "flowbite-react";
 import MessageCard from '@/components/MessageCard'
 import { useStateContext } from "@/components/StateContext";
 
@@ -90,7 +90,6 @@ export default function Messages() {
           justify-center
           justify-between
           space-y-5
-          text-white
         "
     >
 
@@ -113,7 +112,7 @@ export default function Messages() {
         <form onSubmit={handleSubmit} method="post" id="messageForm">
           <div className="grid grid-cols-1 gap-2">
             <label className="block">
-              <span>글쓴이</span>
+              <span className="content-text">글쓴이</span>
               <input
                 type="text"
                 className="
@@ -135,7 +134,7 @@ export default function Messages() {
             </label>
 
             <label className="block">
-              <span> 메세지 ({messageText.length}/{300}) </span>
+              <span className="content-text"> 메세지 ({messageText.length}/{300}) </span>
               <textarea
                 className="
                         mt-1

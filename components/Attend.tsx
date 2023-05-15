@@ -13,11 +13,10 @@ export default function Attend() {
           place-items-center
           justify-center
           justify-between
-          text-white
           space-y-10
         "
     >
-      <p> 참석 여부를 알려주시면 큰 도움이 됩니다.</p>
+      <div className="content-text"> 참석 여부를 알려주시면 큰 도움이 됩니다.</div>
       <b> 💖 💖 💖 </b>
       <Link href="https://forms.gle/p7Qg7LoTsA1jADiQA" target="_blank">
         <Button className="border-1 border-purple-400 bg-gradient-to-r from-purple-200 to-pink-200" size="xl">

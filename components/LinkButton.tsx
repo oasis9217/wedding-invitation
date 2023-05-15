@@ -25,7 +25,7 @@ export default function LinkButton(props: { scrollTo: string; isLast?: boolean }
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          className="w-10 h-10 fill-transparent stroke-slate-50"
+          className="w-10 h-10 fill-transparent stroke-current"
         >
           <Path />
         </svg>

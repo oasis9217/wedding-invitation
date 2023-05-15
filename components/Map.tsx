@@ -22,16 +22,17 @@ export default function Map() {
       "
     >
       <div className="space-y-0.5 text-left">
-        <p className="text-2xl font-extrabold">더케이호텔</p>
-        <p className="text-lg">서울 서초구 바우뫼로12길 70</p>
+        <p className="text-2xl font-extrabold content-text">더케이호텔</p>
+        <p className="text-lg content-text">서울 서초구 바우뫼로12길 70</p>
         <ul className="list-inside text-sm">
           <li>
-            <Image src={walkPic} alt="" /> <b>양재시민의숲역</b> 5번 출구에서 매헌윤봉길의사기념관
-            방면 도보 10분
+            <Image src={walkPic} alt="" />
+            <p className="content-text"><b>양재시민의숲역</b> 5번 출구에서 매헌윤봉길의사기념관 방면 도보 10분</p>
           </li>
           <li>
-            <Image src={busPic} alt="" /> <b>양재역</b> 9번 출구 서초문화예술회관 앞 셔틀 버스, 매
-            20분
+            <Image src={busPic} alt="" />
+            <p className="content-text"><b>양재역</b> 9번 출구 서초문화예술회관 앞 셔틀 버스, 매 20분</p>
+
           </li>
         </ul>
       </div>
