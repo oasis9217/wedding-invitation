@@ -23,11 +23,11 @@ export default function PageWrapper(props: {
     return <div>{props.children}</div>;
   };
 
-  const properties = "snap-start snap-always max-w-[31rem]";
+  const properties = "snap-start snap-always h-screen max-h-screen content-center place-items-center justify-around";
 
   return (
     <div className={properties + ((props.id === '0') ? "" : " backdrop-blur-lg") }>
-      <section className="relative min-h-screen max-h-screen max-w-full" id={'section-' + props.id}>
+      <section className="relative min-h-screen" id={'section-' + props.id}>
         <div className="">
           <Header title={props.title || ''} />
         </div>

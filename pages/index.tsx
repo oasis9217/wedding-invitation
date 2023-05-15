@@ -57,7 +57,19 @@ export default function Home() {
       </Head>
 
       <StateContext.Provider value={{ error, setError }}>
-        <div className="snap-y snap-mandatory overflow-scroll h-screen bg-scroll bg-no-repeat bg-cover bg-main md:bg-contain">
+        <div className="
+          snap-y
+          snap-mandatory
+          overflow-auto
+          h-full
+          max-h-screen
+          max-w-[50rem]
+          bg-no-repeat
+          bg-cover
+          md:bg-contain
+          bg-main-extended
+          bg-center
+        ">
           <PageWrapper id={'0'} scrollTo={'1'} isFront={true}>
             <Hello />
           </PageWrapper>

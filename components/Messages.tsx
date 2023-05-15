@@ -82,14 +82,14 @@ export default function Messages() {
   return (
     <main
       className="
-          flex
-          flex-col
-          h-full
-          content-center
-          place-items-center
-          justify-center
-          justify-between
-          space-y-5
+        grid
+        grid-cols-1
+        h-full
+        content-center
+        place-items-center
+        justify-center
+        justify-between
+        space-y-5
         "
     >
 

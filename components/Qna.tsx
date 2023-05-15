@@ -16,13 +16,14 @@ export default function Qna() {
   return (
     <main
       className="
-        flex
-        flex-col
+        grid
+        grid-cols-1
         h-full
         content-center
         place-items-center
         justify-center
         justify-between
+        space-y-5
       "
     >
       <Accordion className="w-full max-w-screen max-h-screen overflow-y-scroll">

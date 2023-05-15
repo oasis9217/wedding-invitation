@@ -5,7 +5,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 248, 229, 232;
   --background-end-rgb: 255, 255, 255;
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
   height: calc(var(--vh, 1vh) * 100);
@@ -37,4 +37,5 @@ section {
 .content-text {
   color: #562b9c;
   background: rgba(255, 255, 255, 0.5);
+  background-t: rgb(248, 229, 232);
 }

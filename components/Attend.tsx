@@ -6,14 +6,14 @@ export default function Attend() {
   return (
     <main
       className="
-          flex
-          flex-col
-          h-full
-          content-center
-          place-items-center
-          justify-center
-          justify-between
-          space-y-10
+        grid
+        grid-cols-1
+        h-full
+        content-center
+        place-items-center
+        justify-center
+        justify-between
+        space-y-10
         "
     >
       <div className="content-text"> 참석 여부를 알려주시면 큰 도움이 됩니다.</div>
