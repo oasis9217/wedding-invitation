@@ -23,7 +23,7 @@ export default function PageWrapper(props: {
     return <div>{props.children}</div>;
   };
 
-  const properties = "snap-start snap-always h-screen max-h-screen content-center place-items-center justify-around";
+  const properties = "snap-start h-screen max-h-screen content-center place-items-center justify-around";
 
   return (
     <div className={properties + ((props.id === '0') ? "" : " backdrop-blur-lg") }>

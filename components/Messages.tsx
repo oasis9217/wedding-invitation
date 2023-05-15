@@ -85,6 +85,7 @@ export default function Messages() {
         grid
         grid-cols-1
         h-full
+        max-h-full
         content-center
         place-items-center
         justify-center

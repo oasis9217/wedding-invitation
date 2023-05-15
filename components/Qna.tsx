@@ -19,6 +19,7 @@ export default function Qna() {
         grid
         grid-cols-1
         h-full
+        max-h-full
         content-center
         place-items-center
         justify-center
@@ -26,7 +27,7 @@ export default function Qna() {
         space-y-5
       "
     >
-      <Accordion className="w-full max-w-screen max-h-screen overflow-y-scroll">
+      <Accordion className="w-full overflow-y-auto border-1">
         { questions.map(((q, i) => {
           return (
             <Accordion.Panel key={i}>
