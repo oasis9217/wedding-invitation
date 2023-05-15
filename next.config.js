@@ -16,6 +16,12 @@ const nextConfig = {
         port: '',
         pathname: '/file/d/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'googleapis.com',
+        port: '',
+        pathname: '/auth/**',
+      },
     ],
   },
   // webpack5: true,
