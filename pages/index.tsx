@@ -67,7 +67,7 @@ export default function Home() {
           bg-no-repeat
           bg-cover
           md:bg-contain
-          bg-main-extended
+          bg-main-x-extended
           bg-center
         ">
           <PageWrapper id={'0'} scrollTo={'1'} isFront={true}>
