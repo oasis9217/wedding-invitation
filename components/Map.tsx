@@ -24,7 +24,7 @@ export default function Map() {
     >
       <div className="space-y-0.5 text-left">
         <p className="text-2xl font-extrabold content-text">더케이호텔</p>
-        <p className="text-lg content-text">컨벤션 3층 크리스탈볼룸</p>
+        <p className="text-lg font-extrabold content-text">컨벤션 3층 크리스탈볼룸</p>
         <p className="text-lg content-text">서울 서초구 바우뫼로12길 70</p>
         <ul className="list-inside text-sm">
           <li>
